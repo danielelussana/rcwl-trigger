@@ -1,0 +1,13 @@
+[Unit]
+Description=RCWL trigger: al rilevamento del sensore RCWL-0516 ferma/riavvia il servizio e lancia il comando configurati in rcwl-trigger.ini
+After=graphical-session.target
+
+[Service]
+Type=simple
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/home/dlx/env/bin/python3 /opt/scripts/rcwl-trigger/rcwl_trigger.py
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=default.target
